@@ -13,7 +13,7 @@ if [[ ! -z "${DB_USER}" && ! -z "${DB_NAME}" ]]; then
     cockroach sql --insecure -e "CREATE USER IF NOT EXISTS ${DB_USER}; CREATE DATABASE IF NOT EXISTS ${DB_NAME}; GRANT ALL ON DATABASE ${DB_NAME} TO ${DB_USER}"
 
     kill $( cat ${pid_file} )
-    sleep 1 # FIXME:
+    sleep 3 # FIXME:
 else
     echo "don't init test db"
 fi
