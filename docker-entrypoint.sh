@@ -6,7 +6,7 @@ if [[ ! -z "${DB_USER}" && ! -z "${DB_NAME}" ]]; then
     echo "init test db"
 
     pid_file=/tmp/cockroach.pid
-    cockroach start --background --pid-file=${pid_file}
+    cockroach start-single-node --background --pid-file=${pid_file}
 
     sleep 1
 
