@@ -1,2 +1,1 @@
-# wallchat
 # single-node-cockroachdb
