@@ -44,9 +44,9 @@ jobs:
           load: true
           tags: shatnichat/single-node-cockroachdb:test
 
-      - name: Check image
-        run: |
-          docker run -e DB_USER=test -e DB_NAME=test shatnichat/single-node-cockroachdb:test
+#      - name: Check image
+#        run: |
+#          docker run -e DB_USER=test -e DB_NAME=test shatnichat/single-node-cockroachdb:test
 
       - name: Build and push Docker image
         if: ${{ github.event_name != 'pull_request' }}
