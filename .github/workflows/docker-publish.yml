@@ -50,6 +50,18 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }}
+          load: true
+          labels: ${{ env.IMAGE_NAME }}test
+
+      - name: Check image
+        run: |
+          docker run -e DB_USER=test -e DB_NAME=test ${{ env.IMAGE_NAME }}test
+
+      - name: Build and push Docker image
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        with:
+          context: .
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
