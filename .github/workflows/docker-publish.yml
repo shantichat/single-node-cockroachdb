@@ -42,7 +42,7 @@ jobs:
         with:
           context: .
           load: true
-          labels: shatnichat/single-node-cockroachdb:test
+          tags: shatnichat/single-node-cockroachdb:test
 
       - name: Check image
         run: |
