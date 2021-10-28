@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [[ -z "$@"]] && [[ ! -z "${DB_USER}" ]] && [[ ! -z "${DB_NAME}" ]]; then
+if [[ -z "$@" && ! -z "${DB_USER}" && ! -z "${DB_NAME}" ]]; then
     set -x
 
     cockroach start-single-node --insecure
