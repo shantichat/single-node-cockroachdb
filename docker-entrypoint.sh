@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [[ -z "$@" && ! -z "${DB_USER}" && ! -z "${DB_NAME}" ]]; then
+if [[ -z "$@"]] && [[ ! -z "${DB_USER}" ]] && [[ ! -z "${DB_NAME}" ]]; then
     set -x
 
     cockroach start-single-node --insecure
@@ -11,8 +11,5 @@ if [[ -z "$@" && ! -z "${DB_USER}" && ! -z "${DB_NAME}" ]]; then
 
     kill ${cockroach_pid}
 fi
-
-DB_NAME: chatnode
-DB_USER: chatnode
 
 exec "$@"
