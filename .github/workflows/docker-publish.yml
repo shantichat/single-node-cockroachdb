@@ -51,11 +51,11 @@ jobs:
         with:
           context: .
           load: true
-          labels: ${{ env.IMAGE_NAME }}test
+          labels: ${{ env.IMAGE_NAME }}
 
       - name: Check image
         run: |
-          docker run -e DB_USER=test -e DB_NAME=test ${{ env.IMAGE_NAME }}test
+          docker run -e DB_USER=test -e DB_NAME=test ${{ env.IMAGE_NAME }}
 
       - name: Build and push Docker image
         if: ${{ github.event_name != 'pull_request' }}
